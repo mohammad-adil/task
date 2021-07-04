@@ -1,0 +1,21 @@
+{
+  "name": "taskmanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mailgun-js": "^0.22.0",
+    "mongodb": "^3.6.9",
+    "mongoose": "^5.13.0",
+    "nodemon": "^2.0.9",
+    "validator": "^13.6.0"
+  }
+}
