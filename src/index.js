@@ -116,9 +116,19 @@ app.patch('/tasks/:id', async (req, res) => {
     if (!allowedTasks) {
         res.status(400).send('Invalid Task Update')
     }
-    let updateTask = await Task.findByIdAndUpdate(_id, req.body, { new: true })
-    console.log(updateTask)
-    res.status(200).send(updateTask)
+    try {
+        let updateTask = await Task.findByIdAndUpdate(_id, req.body, { new: true })
+        if (!updateTask) {
+            res.status(404).send('No Such Task Found')
+        } else {
+
+            res.status(200).send(updateTask)
+        }
+    } catch (e) {
+
+        res.status(500).send('Something went Wrong')
+    }
+
 })
 
 app.listen(port, () => {
